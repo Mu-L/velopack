@@ -19,7 +19,7 @@ runs:
       shell: bash
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake libpango1.0-dev libcairo2-dev libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libwayland-dev libxkbcommon-dev wayland-protocols libdbus-1-dev
+        sudo apt-get install -y libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libpango1.0-dev libgl1-mesa-dev libglu1-mesa-dev libpipewire-0.3-dev libclang-dev libgbm-dev libegl-dev libwayland-dev
     - name: Setup dotnet
       if: inputs.dotnet == 'true'
       uses: actions/setup-dotnet@v5
