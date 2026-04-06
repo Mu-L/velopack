@@ -14,6 +14,12 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Install Linux Dependencies
+      if: runner.os == 'Linux'
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake libpango1.0-dev libcairo2-dev libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libwayland-dev libxkbcommon-dev wayland-protocols libdbus-1-dev
     - name: Setup dotnet
       if: inputs.dotnet == 'true'
       uses: actions/setup-dotnet@v5
