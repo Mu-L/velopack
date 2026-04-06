@@ -7,7 +7,7 @@ pre-build = [
 
 [target.aarch64-unknown-linux-musl]
 pre-build = [
-    "apt-get update && apt-get install -y libpango1.0-dev libcairo2-dev libx11-dev libxext-dev libxft-dev libxinerama-dev libxcursor-dev libxrender-dev libxfixes-dev libwayland-dev libxkbcommon-dev wayland-protocols libdbus-1-dev",
+    "dpkg --add-architecture arm64 && apt-get update && apt-get install -y libpango1.0-dev:arm64 libcairo2-dev:arm64 libx11-dev:arm64 libxext-dev:arm64 libxft-dev:arm64 libxinerama-dev:arm64 libxcursor-dev:arm64 libxrender-dev:arm64 libxfixes-dev:arm64 libwayland-dev:arm64 libxkbcommon-dev:arm64 wayland-protocols libdbus-1-dev:arm64",
     "curl --retry 3 -sSfL https://github.com/Kitware/CMake/releases/download/v3.31.11/cmake-3.31.11-linux-x86_64.sh -o /tmp/cmake.sh && sh /tmp/cmake.sh --skip-license --prefix=/usr/local && rm /tmp/cmake.sh",
     "which aarch64-linux-musl-gcc && ln -sf $(which aarch64-linux-musl-gcc) /usr/local/bin/musl-gcc && ln -sf $(which aarch64-linux-musl-g++) /usr/local/bin/musl-g++",
 ]
