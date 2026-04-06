@@ -126,6 +126,8 @@ jobs:
           cargo binstall cross
           mkdir ./artifacts
       - name: Build Rust Binaries (${{ matrix.target }})
+        env:
+          CROSS_CONFIG: src/bins/Cross.toml
         run: |
           cross build --release --target ${{ matrix.rust_target }} -p velopack_bins
           ldd ./target/${{ matrix.rust_target }}/release/update || true
